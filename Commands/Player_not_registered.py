@@ -24,7 +24,7 @@ class Player_not_registered:
             membersId = list()
             for user in self.ctx.guild.members:
                 for role in user.roles:
-                    if role.id in [1084908952963260527, 1084909032160104528, 1084917372881739937]:
+                    if role.id in [861243034343964712, 861242852573839360, 1016385635512221889]: # Roles : GM's - Officiers - Membre
                         membersId.append(user.id)
                         break
             
