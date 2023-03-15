@@ -1,3 +1,4 @@
+from keep_alive import keep_alive
 import os
 import discord
 from discord.ext import commands
@@ -25,5 +26,6 @@ async def check_error(ctx, error):
     if isinstance(error, commands.MissingAnyRole):
         await ctx.message.author.send('You are not allowed to use this command.')
 
+keep_alive()
 load_dotenv('.env')
 bot.run(os.getenv("TOKEN"), log_handler=handler, log_level=logging.DEBUG)
