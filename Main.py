@@ -6,7 +6,6 @@ import logging
 from Commands.Player_not_registered import Player_not_registered
 from dotenv import load_dotenv
 
-
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
 intents = discord.Intents.default()
 intents.message_content = True
@@ -26,6 +25,6 @@ async def check_error(ctx, error):
     if isinstance(error, commands.MissingAnyRole):
         await ctx.message.author.send('You are not allowed to use this command.')
 
-keep_alive()
+keep_alive.keep_alive()
 load_dotenv('.env')
 bot.run(os.getenv("TOKEN"), log_handler=handler, log_level=logging.DEBUG)
