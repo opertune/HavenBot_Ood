@@ -40,11 +40,15 @@ class Player_not_registered:
                 missingUserName += '@' + self.bot.get_user(missingUserId).name + '#' + self.bot.get_user(missingUserId).discriminator + ' '
 
             # Send private message to the user who user the command
-            await self.ctx.message.author.send('Liste des joueurs qui ne sont pas inscrits à l\'événement du ' + content['date'] + ' dans le channel #' + content['channelName'])
-            await self.ctx.message.author.send(missingUserName)
+            # await self.ctx.message.author.send('Liste des joueurs qui ne sont pas inscrits à l\'événement du ' + content['date'] + ' dans le channel #' + content['channelName'])
+            # await self.ctx.message.author.send(missingUserName)
 
             # Mention all missing users
-            msg = ""
-            for user in missingUser:
-                msg += "".join("<@"+str(user)+"> ")
-            await self.ctx.send(msg)
+            if not missingUser:
+                await self.ctx.send('Tous les joueurs sont inscrits !')
+            else:
+                msg = ""
+                for user in missingUser:
+                    msg += "".join("<@"+str(user)+"> ")
+                await self.ctx.send(msg)
+                await self.ctx.send("Merci de vous inscrire à l'événement du " + content['date'])
