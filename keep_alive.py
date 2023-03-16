@@ -3,7 +3,6 @@ from threading import Thread
 
 app = Flask('')
 
-@app.route('/')
 def main():
   return "Your bot is alive!"
 

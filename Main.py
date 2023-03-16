@@ -1,10 +1,10 @@
-from keep_alive import keep_alive
 import os
 import discord
 from discord.ext import commands
 import logging
 from Commands.Player_not_registered import Player_not_registered
 from dotenv import load_dotenv
+from keep_alive import keep_alive
 
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
 intents = discord.Intents.default()
