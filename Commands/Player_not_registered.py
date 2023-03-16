@@ -5,7 +5,7 @@ class Player_not_registered:
         self.bot = bot
         self.ctx = ctx
         self.arg = arg
-        self.exceptions = list((633390827703369738,579155972115660803,219218884966875138,281425624411668480,168749001850486784)) # Goumata - Raid-Helper - Dako - Rekam - Azkand (second account)
+        self.exceptions = list((1069883212328874004,579155972115660803,1072131714773684345,1045287105712115774,1084866014149357629)) # Goumata - Raid-Helper - Dako - Rekam - Azkand (second account)
         self.roles = list((861243034343964712, 861242852573839360, 1016385635512221889, 1083363397850103908)) #GM's - Officiers - Membre - Apply
 
     async def commandCheck(self):
@@ -25,7 +25,7 @@ class Player_not_registered:
             membersId = list()
             for user in self.ctx.guild.members:
                 for role in user.roles:
-                    if role.id not in self.exceptions: 
+                    if user.id not in self.exceptions:
                         if role.id in self.roles:
                             membersId.append(user.id)
                             break

@@ -26,4 +26,4 @@ async def check_error(ctx, error):
 
 keep_alive()
 load_dotenv('.env')
-bot.run(os.getenv("TOKEN_TEST"), log_handler=handler, log_level=logging.DEBUG)
+bot.run(os.getenv("TOKEN"), log_handler=handler, log_level=logging.DEBUG)
