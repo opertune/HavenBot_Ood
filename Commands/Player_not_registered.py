@@ -5,7 +5,7 @@ class Player_not_registered:
         self.bot = bot
         self.ctx = ctx
         self.arg = arg
-    
+        self.exceptions = [633390827703369738,579155972115660803,219218884966875138,281425624411668480,168749001850486784] # Goumata - Raid-Helper - Rekam - Azkand (second account)
     async def commandCheck(self):
         if self.arg is None:
             await self.ctx.send('Event id required !')
@@ -23,9 +23,10 @@ class Player_not_registered:
             membersId = list()
             for user in self.ctx.guild.members:
                 for role in user.roles:
-                    if role.id in [861243034343964712, 861242852573839360, 1016385635512221889]: # Roles : GM's - Officiers - Membre
-                        membersId.append(user.id)
-                        break
+                    if role.id not in self.exceptions:
+                        if role.id in [861243034343964712, 861242852573839360, 1016385635512221889, 1083363397850103908]: # Roles : GM's - Officiers - Membre - Apply
+                            membersId.append(user.id)
+                            break
             
             # print('Users id with gm/officier/membre role :')
             # print(membersId)
