@@ -23,7 +23,7 @@ class Player_not_registered:
             membersId = list()
             for user in self.ctx.guild.members:
                 for role in user.roles:
-                    if role.id in [1084908952963260527, 1084909032160104528, 1084917372881739937]: # Roles : GM's - Officiers - Membre
+                    if role.id in [861243034343964712, 861242852573839360, 1016385635512221889]: # Roles : GM's - Officiers - Membre
                         membersId.append(user.id)
                         break
             
@@ -47,8 +47,10 @@ class Player_not_registered:
             if not missingUser:
                 await self.ctx.send('Tous les joueurs sont inscrits !')
             else:
-                msg = ""
-                for user in missingUser:
-                    msg += "".join("<@"+str(user)+"> ")
-                await self.ctx.send(msg)
-                await self.ctx.send("Merci de vous inscrire à l'événement du " + content['date'])
+                # msg = ""
+                # for user in missingUser:
+                #     msg += "".join("<@"+str(user)+"> ")
+                # await self.ctx.send(msg)
+                # await self.ctx.send("Merci de vous inscrire à l'événement du " + content['date'])
+                await self.ctx.message.author.send('Liste des joueurs qui ne sont pas inscrits à l\'événement du ' + content['date'] + ' dans le channel #' + content['channelName'])
+                await self.ctx.message.author.send(missingUserName)
