@@ -5,7 +5,7 @@ class Player_not_registered:
         self.bot = bot
         self.ctx = ctx
         self.arg = arg
-        self.exceptions = list((633390827703369738, 579155972115660803, 219218884966875138, 281425624411668480, 168749001850486784)) # Goumata - Raid-Helper - Dako - Rekam - Azkand (second account)
+        self.exceptions = list((633390827703369738, 579155972115660803, 219218884966875138, 281425624411668480, 168749001850486784, 466227969845886997)) # Goumata - Raid-Helper - Dako - Rekam - Azkand (second account) - Ajna
         self.roles = list((861243034343964712, 861242852573839360, 1016385635512221889, 1083363397850103908)) #GM's - Officiers - Membre - Apply
 
     async def commandCheck(self):
@@ -16,6 +16,9 @@ class Player_not_registered:
             # Returns all registered users to the targeted event.
             r = requests.get('https://raid-helper.dev/api/v2/events/' + self.arg)
             content = r.json()
+            if content['reason'] == "unknown event":
+                await self.ctx.message.author.send("unknown event")
+                return
             # Get and store all user id for the targeted event
             eventUserId = list()
             for item in content['signUps']:
