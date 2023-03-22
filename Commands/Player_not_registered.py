@@ -16,7 +16,8 @@ class Player_not_registered:
             # Returns all registered users to the targeted event.
             r = requests.get('https://raid-helper.dev/api/v2/events/' + self.arg)
             content = r.json()
-            if content['reason'] == "unknown event":
+            
+            if hasattr(content, 'reason'):
                 await self.ctx.message.author.send("unknown event")
                 return
             # Get and store all user id for the targeted event
@@ -32,7 +33,7 @@ class Player_not_registered:
                         if role.id in self.roles:
                             membersId.append(user.id)
                             break
-
+            
             # List of players not register for the event
             missingUser = [i for i in membersId if i not in eventUserId]
             missingUserName = ''
@@ -48,5 +49,3 @@ class Player_not_registered:
                     msg += "".join("<@"+str(user)+"> ")
                 await self.ctx.send(msg)
                 await self.ctx.send("Merci de vous inscrire à l'événement du " + content['date'])
-                # await self.ctx.message.author.send('Liste des joueurs qui ne sont pas inscrits à l\'événement du ' + content['date'] + ' dans le channel #' + content['channelName'])
-                # await self.ctx.message.author.send(missingUserName)
