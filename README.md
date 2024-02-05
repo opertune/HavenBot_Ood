@@ -1,5 +1,6 @@
-## **! Bot discord personnel !**
-## **! Out of Date !**
 
+# Out of Date
 
-## Permet de tag les personnes qui ne sont pas inscritent sur un événement Raid-Helper.
+Bot discord personnel :
+Permet de tag les personnes qui ne sont pas inscritent sur un événement Raid-Helper.
+
